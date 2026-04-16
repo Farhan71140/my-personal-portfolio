@@ -271,7 +271,7 @@
           <div class="contact-info">
             <div class="contact-item">
               <span class="ci-icon">📧</span>
-              <span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="a2cfcdcac6c4c3d0cac3ccd7c6c6cbcc929290e2c5cfc3cbce8cc1cdcf">[email&#160;protected]</a></span>
+              <span><a href="mailto:mohdfarhanuddin002@gmail.com" style="color:inherit;">mohdfarhanuddin002@gmail.com</a></span>
             </div>
             <a href="tel:+919133028638" class="contact-item">
               <span class="ci-icon">📞</span>
@@ -287,17 +287,37 @@
             <a href="https://linkedin.com" class="social-btn">LinkedIn</a>
           </div>
         </div>
-        <form class="contact-form" id="contactForm">
+
+        <form class="contact-form" id="contactForm" action="https://formsubmit.co/mohdfarhanuddin002@gmail.com" method="POST">
+          <!-- FormSubmit config -->
+          <input type="hidden" name="_subject" value="New message from your portfolio!" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_template" value="table" />
+
           <div class="form-group">
             <label>Your Name</label>
-            <input type="text" placeholder="John Doe" required />
+            <input type="text" name="name" placeholder="John Doe" required />
           </div>
           <div class="form-group">
             <label>Email Address</label>
-            <input type="email" placeholder="john@example.com" required />
+            <input type="email" name="email" placeholder="john@example.com" required />
           </div>
           <div class="form-group">
             <label>Message</label>
-            <textarea rows="5" placeholder="Tell me about your project..." required></textarea>
+            <textarea rows="5" name="message" placeholder="Tell me about your project..." required></textarea>
           </div>
-          <button type="submit" class="btn-prima
+          <button type="submit" class="btn-primary full-width">Send Message</button>
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 Mohammed Farhan Uddin · Built with passion in Hyderabad</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
