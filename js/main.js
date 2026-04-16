@@ -55,18 +55,38 @@ revealElements.forEach(el => {
   observer.observe(el);
 });
 
-// Contact form
+// Contact form — EmailJS
 const form = document.getElementById('contactForm');
 form.addEventListener('submit', (e) => {
   e.preventDefault();
   const btn = form.querySelector('button[type="submit"]');
-  btn.textContent = 'Message Sent!';
-  btn.style.background = 'linear-gradient(135deg, #22c55e, #16a34a)';
-  setTimeout(() => {
-    btn.textContent = 'Send Message';
-    btn.style.background = '';
-    form.reset();
-  }, 3000);
+
+  // Show sending state
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+
+  emailjs.sendForm("service_gi8d2jb", "template_cntfagb", form)
+    .then(() => {
+      // Success
+      btn.textContent = 'Message Sent!';
+      btn.style.background = 'linear-gradient(135deg, #22c55e, #16a34a)';
+      btn.disabled = false;
+      form.reset();
+      setTimeout(() => {
+        btn.textContent = 'Send Message';
+        btn.style.background = '';
+      }, 3000);
+    }, (error) => {
+      // Error
+      btn.textContent = 'Failed. Try Again.';
+      btn.style.background = 'linear-gradient(135deg, #ef4444, #b91c1c)';
+      btn.disabled = false;
+      console.error('EmailJS error:', error);
+      setTimeout(() => {
+        btn.textContent = 'Send Message';
+        btn.style.background = '';
+      }, 3000);
+    });
 });
 
 // Active nav link highlight
