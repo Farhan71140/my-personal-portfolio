@@ -10,9 +10,8 @@
   <!-- EmailJS SDK -->
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script>
-    emailjs.init("0ymzb3hFDbaD2dAjS"); // ← Replace with your Public Key from Step 5
+    emailjs.init("0ymzb3hFDbaD2dAjS");
   </script>
-
 </head>
 <body>
 
@@ -290,12 +289,11 @@
             </div>
           </div>
           <div class="social-links">
-            <a href="https://github.com" class="social-btn">GitHub</a>
-            <a href="https://linkedin.com" class="social-btn">LinkedIn</a>
+            <a href="https://github.com/Farhan71140" target="_blank" rel="noopener noreferrer" class="social-btn">GitHub</a>
+            <a href="https://www.linkedin.com/in/mdfarhanuddin/" target="_blank" rel="noopener noreferrer" class="social-btn">LinkedIn</a>
           </div>
         </div>
 
-        <!-- CHANGED: Removed action/method & FormSubmit hidden inputs. EmailJS handles submission via main.js -->
         <form class="contact-form" id="contactForm">
           <div class="form-group">
             <label>Your Name</label>
@@ -310,6 +308,7 @@
             <textarea rows="5" name="message" placeholder="Tell me about your project..." required></textarea>
           </div>
           <button type="submit" class="btn-primary full-width">Send Message</button>
+          <p id="form-status" style="text-align:center;font-size:0.85rem;min-height:1.2em;color:var(--muted);"></p>
         </form>
 
       </div>
