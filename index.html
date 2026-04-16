@@ -6,6 +6,13 @@
   <title>Mohammed Farhan Uddin | Python Full-Stack Developer</title>
   <link rel="stylesheet" href="css/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+
+  <!-- EmailJS SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>
+    emailjs.init("0ymzb3hFDbaD2dAjS"); // ← Replace with your Public Key from Step 5
+  </script>
+
 </head>
 <body>
 
@@ -288,12 +295,8 @@
           </div>
         </div>
 
-        <form class="contact-form" id="contactForm" action="https://formsubmit.co/mohdfarhanuddin002@gmail.com" method="POST">
-          <!-- FormSubmit config -->
-          <input type="hidden" name="_subject" value="New message from your portfolio!" />
-          <input type="hidden" name="_captcha" value="false" />
-          <input type="hidden" name="_template" value="table" />
-
+        <!-- CHANGED: Removed action/method & FormSubmit hidden inputs. EmailJS handles submission via main.js -->
+        <form class="contact-form" id="contactForm">
           <div class="form-group">
             <label>Your Name</label>
             <input type="text" name="name" placeholder="John Doe" required />
