@@ -54,47 +54,49 @@ revealElements.forEach(el => {
   observer.observe(el);
 });
 
-// Contact form — EmailJS
-const form       = document.getElementById('contactForm');
-const statusMsg  = document.getElementById('form-status');
+// ── Contact Form — EmailJS ──────────────────────────────────────────────────
+const form      = document.getElementById('contactForm');
+const statusMsg = document.getElementById('form-status');
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
   const btn = form.querySelector('button[type="submit"]');
+
+  // Read values directly from the form fields
+  const templateParams = {
+    from_name:    form.querySelector('[name="name"]').value.trim(),
+    from_email:   form.querySelector('[name="email"]').value.trim(),
+    message:      form.querySelector('[name="message"]').value.trim(),
+    to_email:     'mohdfarhanuddin002@gmail.com',
+    reply_to:     form.querySelector('[name="email"]').value.trim(),
+  };
 
   btn.textContent = 'Sending...';
   btn.disabled    = true;
   statusMsg.textContent = '';
   statusMsg.style.color = 'var(--muted)';
 
-  // ── IMPORTANT ──────────────────────────────────────────────────────────────
-  // Make sure these three values match your EmailJS dashboard exactly:
-  //   Service ID  → https://dashboard.emailjs.com/admin
-  //   Template ID → https://dashboard.emailjs.com/admin/templates
-  //   Public Key  → https://dashboard.emailjs.com/admin/account
-  // ───────────────────────────────────────────────────────────────────────────
-  emailjs.sendForm('service_gi8d2jb', 'template_cntfagb', form)
+  // Using emailjs.send() with explicit params instead of sendForm()
+  // This avoids the 400 error caused by template variable name mismatches
+  emailjs.send('service_gi8d2jb', 'template_cntfagb', templateParams)
     .then(() => {
-      btn.textContent       = 'Message Sent! ✓';
-      btn.style.background  = 'linear-gradient(135deg, #22c55e, #16a34a)';
-      statusMsg.textContent = 'Thanks! I\'ll get back to you soon.';
+      btn.textContent      = 'Message Sent! ✓';
+      btn.style.background = 'linear-gradient(135deg, #22c55e, #16a34a)';
+      statusMsg.textContent = "Thanks! I'll get back to you soon.";
       statusMsg.style.color = '#22c55e';
       btn.disabled          = false;
       form.reset();
       setTimeout(() => {
-        btn.textContent      = 'Send Message';
-        btn.style.background = '';
+        btn.textContent       = 'Send Message';
+        btn.style.background  = '';
         statusMsg.textContent = '';
       }, 4000);
     })
-    .catch((error) => {
-      console.error('EmailJS error:', error);
-
-      // Show a user-friendly error with a hint
-      const errCode = error?.status || error?.text || JSON.stringify(error);
-      statusMsg.textContent = `Failed to send (${errCode}). Please try emailing directly.`;
+    .catch((err) => {
+      console.error('EmailJS error:', err);
+      const code = err?.status || err?.text || JSON.stringify(err);
+      statusMsg.textContent = `Failed to send (${code}). Please email me directly.`;
       statusMsg.style.color = '#ef4444';
-
       btn.textContent      = 'Failed — Try Again';
       btn.style.background = 'linear-gradient(135deg, #ef4444, #b91c1c)';
       btn.disabled         = false;
