@@ -82,7 +82,7 @@ form.addEventListener('submit', (e) => {
 
   // Using emailjs.send() with explicit params instead of sendForm()
   // This avoids the 400 error caused by template variable name mismatches
-  emailjs.send('service_gi8d2jb', 'template_cntfagb', templateParams)
+  emailjs.send('ycpa svjm ylvc sfck', 'template_cntfagb', templateParams)
     .then(() => {
       btn.textContent      = 'Message Sent! ✓';
       btn.style.background = 'linear-gradient(135deg, #22c55e, #16a34a)';
