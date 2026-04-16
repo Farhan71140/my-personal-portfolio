@@ -63,12 +63,16 @@ form.addEventListener('submit', (e) => {
   const btn = form.querySelector('button[type="submit"]');
 
   // Read values directly from the form fields
+  const now = new Date();
+  const timeStr = now.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' });
+
   const templateParams = {
-    from_name:    form.querySelector('[name="name"]').value.trim(),
-    from_email:   form.querySelector('[name="email"]').value.trim(),
-    message:      form.querySelector('[name="message"]').value.trim(),
-    to_email:     'mohdfarhanuddin002@gmail.com',
-    reply_to:     form.querySelector('[name="email"]').value.trim(),
+    from_name:  form.querySelector('[name="name"]').value.trim(),
+    from_email: form.querySelector('[name="email"]').value.trim(),
+    message:    form.querySelector('[name="message"]').value.trim(),
+    to_email:   'mohdfarhanuddin002@gmail.com',
+    reply_to:   form.querySelector('[name="email"]').value.trim(),
+    time:       timeStr,
   };
 
   btn.textContent = 'Sending...';
