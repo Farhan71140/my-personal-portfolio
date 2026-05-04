@@ -19,18 +19,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 const hamburger = document.getElementById('hamburger');
 const navLinks  = document.querySelector('.nav-links');
 hamburger.addEventListener('click', () => {
-  const open = navLinks.style.display === 'flex';
-  Object.assign(navLinks.style, {
-    display:         open ? 'none' : 'flex',
-    flexDirection:   'column',
-    position:        'absolute',
-    top:             '60px',
-    left:            '0',
-    right:           '0',
-    background:      'rgba(8,8,16,0.98)',
-    padding:         '1rem 2rem',
-    borderBottom:    '1px solid #1e1e2e',
-  });
+  navLinks.classList.toggle('open');
 });
 
 // Scroll reveal animation
