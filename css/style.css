@@ -621,20 +621,146 @@ footer {
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
+
+  /* --- Navbar --- */
   .nav-links { display: none; }
   .hamburger { display: flex; }
 
+  /* --- Hero --- */
   .hero {
-    flex-direction: column;
+    flex-direction: column-reverse;
     text-align: center;
-    padding: 6rem 1.5rem 3rem;
+    padding: 5rem 1.25rem 3rem;
+    gap: 2rem;
+    min-height: auto;
+  }
+
+  .hero-content {
+    width: 100%;
+  }
+
+  .hero-badge {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero h1 {
+    font-size: clamp(2rem, 10vw, 2.8rem);
+  }
+
+  .hero-desc {
+    max-width: 100%;
+    font-size: 0.9rem;
+  }
+
+  .hero-btns {
+    justify-content: center;
+    gap: 0.75rem;
+  }
+
+  .hero-stats {
+    justify-content: center;
+    gap: 1.5rem;
+  }
+
+  /* Avatar: shrink and hide floating tags */
+  .hero-visual {
+    width: 160px;
+    height: 160px;
+    flex-shrink: 0;
+  }
+
+  .avatar-ring {
+    width: 140px;
+    height: 140px;
+  }
+
+  /* Hide floating tags on mobile — they intersect everything */
+  .floating-tags {
+    display: none;
+  }
+
+  /* --- Skills --- */
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  /* --- Projects --- */
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .project-card {
+    padding: 1.4rem;
+  }
+
+  .project-metrics {
+    gap: 0.75rem;
+  }
+
+  /* --- Certifications --- */
+  .certs-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  /* --- Contact --- */
+  .contact-wrapper {
+    grid-template-columns: 1fr;
     gap: 2rem;
   }
-  .hero-desc { max-width: 100%; }
-  .hero-btns { justify-content: center; }
-  .hero-stats { justify-content: center; }
-  .hero-visual { width: 200px; height: 200px; }
 
-  .contact-wrapper { grid-template-columns: 1fr; gap: 2rem; }
-  .section-header h2 { font-size: 2rem; }
+  .contact-left h2 {
+    font-size: 1.8rem;
+  }
+
+  .contact-form {
+    padding: 1.5rem;
+  }
+
+  /* --- Section headers --- */
+  .section-header h2 {
+    font-size: 2rem;
+  }
+
+  .skills-section,
+  .projects-section,
+  .certs-section,
+  .contact-section {
+    padding: 4rem 0;
+  }
+
+  /* --- Footer --- */
+  footer {
+    font-size: 0.78rem;
+    padding: 1.5rem 1rem;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 380px) {
+  .hero h1 { font-size: 1.8rem; }
+  .hero-btns { flex-direction: column; align-items: center; }
+  .btn-primary, .btn-outline { width: 100%; text-align: center; }
+  .hero-stats { gap: 1rem; }
+  .stat-num { font-size: 1.3rem; }
+  .social-links { flex-direction: column; }
+  .social-btn { text-align: center; }
+}
+
+/* Hamburger menu open state */
+.nav-links.open {
+  display: flex !important;
+  flex-direction: column;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  right: 0;
+  background: rgba(8, 8, 16, 0.98);
+  padding: 1rem 2rem 1.5rem;
+  border-bottom: 1px solid #1e1e2e;
+  gap: 1.25rem;
+  z-index: 999;
 }
