@@ -215,12 +215,12 @@ body::after {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  padding: 7rem 2rem 5rem;
+  padding: 7rem 3rem 5rem 2rem;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   max-width: 1200px;
   margin: 0 auto;
-  gap: 5rem;
+  gap: 3rem;
   z-index: 2;
 }
 
@@ -466,12 +466,14 @@ body::after {
   position: relative;
   z-index: 2;
   flex-shrink: 0;
-  width: 460px;
-  height: 460px;
+  width: 500px;
+  height: 500px;
   display: flex;
   align-items: center;
   justify-content: center;
   animation: fadeSlideUp 1s cubic-bezier(0.4,0,0.2,1) 0.4s both;
+  /* allow tags to overflow the box without being clipped */
+  overflow: visible;
 }
 
 /* Rotating ring */
@@ -545,12 +547,13 @@ body::after {
   position: absolute;
   inset: 0;
   pointer-events: none;
+  overflow: visible;
 }
 .ftag {
   position: absolute;
   transform: translate(-50%, -50%);
   white-space: nowrap;
-  background: rgba(15,15,26,0.9);
+  background: rgba(15,15,26,0.92);
   border: 1px solid var(--border2);
   color: var(--text);
   font-size: 0.72rem;
@@ -560,16 +563,18 @@ body::after {
   letter-spacing: 0.02em;
   backdrop-filter: blur(10px);
   transition: border-color 0.3s, box-shadow 0.3s;
+  pointer-events: auto;
 }
 .ftag:hover { border-color: var(--accent1); box-shadow: 0 0 20px rgba(255,107,53,0.2); }
-.ftag1 { left: 50%; top: 2%; animation: floatTag 4s ease-in-out infinite 0s; }
-.ftag2 { left: 87%; top: 16%; animation: floatTag 4.2s ease-in-out infinite 0.4s; }
-.ftag3 { left: 97%; top: 50%; animation: floatTag 3.8s ease-in-out infinite 0.8s; }
-.ftag4 { left: 87%; top: 84%; animation: floatTag 4.5s ease-in-out infinite 1.2s; }
-.ftag5 { left: 50%; top: 97%; animation: floatTag 4s ease-in-out infinite 1.6s; }
-.ftag6 { left: 13%; top: 84%; animation: floatTag 4.3s ease-in-out infinite 2s; }
-.ftag7 { left: 3%; top: 50%; animation: floatTag 3.9s ease-in-out infinite 2.4s; }
-.ftag8 { left: 13%; top: 16%; animation: floatTag 4.1s ease-in-out infinite 2.8s; }
+/* Positions pulled inward on the right so tags stay visible */
+.ftag1 { left: 50%;  top: 3%;  animation: floatTag 4s ease-in-out infinite 0s; }
+.ftag2 { left: 82%;  top: 14%; animation: floatTag 4.2s ease-in-out infinite 0.4s; }
+.ftag3 { left: 90%;  top: 50%; animation: floatTag 3.8s ease-in-out infinite 0.8s; }
+.ftag4 { left: 82%;  top: 86%; animation: floatTag 4.5s ease-in-out infinite 1.2s; }
+.ftag5 { left: 50%;  top: 97%; animation: floatTag 4s ease-in-out infinite 1.6s; }
+.ftag6 { left: 18%;  top: 86%; animation: floatTag 4.3s ease-in-out infinite 2s; }
+.ftag7 { left: 10%;  top: 50%; animation: floatTag 3.9s ease-in-out infinite 2.4s; }
+.ftag8 { left: 18%;  top: 14%; animation: floatTag 4.1s ease-in-out infinite 2.8s; }
 
 @keyframes floatTag {
   0%, 100% { transform: translate(-50%, -50%) translateY(0px); }
