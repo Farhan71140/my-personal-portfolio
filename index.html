@@ -9,16 +9,29 @@
 
   <!-- EmailJS SDK -->
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-  <script>
-    emailjs.init("0ymzb3hFDbaD2dAjS");
-  </script>
+  <script>emailjs.init("0ymzb3hFDbaD2dAjS");</script>
 </head>
 <body>
 
-  <!-- NAV -->
+  <!-- ===== LOADER ===== -->
+  <div id="loader">
+    <div class="loader-logo">MFU.</div>
+    <div class="loader-bar"><div class="loader-fill"></div></div>
+  </div>
+
+  <!-- ===== CURSOR ===== -->
+  <div id="cursor"></div>
+  <div id="cursor-trail"></div>
+
+  <!-- ===== PARTICLES ===== -->
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- ===== NAV ===== -->
   <nav id="navbar">
     <div class="nav-inner">
-      <div class="logo">MFU<span>.</span></div>
+      <a href="#about" class="logo">
+        <span class="logo-text">MFU</span><span>.</span>
+      </a>
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#skills">Skills</a></li>
@@ -32,13 +45,15 @@
     </div>
   </nav>
 
-  <!-- HERO -->
+  <!-- ===== HERO ===== -->
   <section class="hero" id="about">
     <div class="hero-bg">
       <div class="blob blob1"></div>
       <div class="blob blob2"></div>
+      <div class="blob blob3"></div>
       <div class="grid-overlay"></div>
     </div>
+
     <div class="hero-content">
       <div class="hero-badge">
         <span class="badge-dot"></span> Available for opportunities
@@ -54,20 +69,32 @@
       </p>
       <div class="hero-btns">
         <a href="#projects" class="btn-primary">View Projects</a>
-        <a href="#contact" class="btn-outline">Get in Touch</a>
+        <a href="#contact" class="btn-outline"><span>Get in Touch</span></a>
       </div>
       <div class="hero-stats">
-        <div class="stat"><span class="stat-num">6+</span><span class="stat-label">Projects</span></div>
+        <div class="stat">
+          <span class="stat-num">6+</span>
+          <span class="stat-label">Projects</span>
+        </div>
         <div class="stat-divider"></div>
-        <div class="stat"><span class="stat-num">4+</span><span class="stat-label">Certifications</span></div>
+        <div class="stat">
+          <span class="stat-num">4+</span>
+          <span class="stat-label">Certifications</span>
+        </div>
         <div class="stat-divider"></div>
-        <div class="stat"><span class="stat-num">40%</span><span class="stat-label">Performance Gains</span></div>
+        <div class="stat">
+          <span class="stat-num">40%</span>
+          <span class="stat-label">Performance Gains</span>
+        </div>
       </div>
     </div>
+
     <div class="hero-visual">
+      <div class="avatar-orbit2"><div class="orbit-dot2"></div></div>
+      <div class="avatar-orbit"><div class="orbit-dot"></div></div>
       <div class="avatar-ring">
         <div class="avatar-inner">
-          <img src="profile.jpg" alt="Mohammed Farhan Uddin" />
+          <img src="profile.jpg" alt="Mohammed Farhan Uddin" onerror="this.style.display='none';this.parentElement.innerHTML='<span>MFU</span>'" />
         </div>
       </div>
       <div class="floating-tags">
@@ -83,7 +110,7 @@
     </div>
   </section>
 
-  <!-- SKILLS -->
+  <!-- ===== SKILLS ===== -->
   <section class="skills-section" id="skills">
     <div class="container">
       <div class="section-header">
@@ -151,7 +178,7 @@
     </div>
   </section>
 
-  <!-- PROJECTS -->
+  <!-- ===== PROJECTS ===== -->
   <section class="projects-section" id="projects">
     <div class="container">
       <div class="section-header">
@@ -176,22 +203,18 @@
             <span>FastAPI</span><span>MySQL</span><span>HTML</span><span>Bootstrap</span>
           </div>
           <div class="project-links">
-            <a href="https://madam-choice-footwear2.vercel.app/" target="_blank" rel="noopener noreferrer" class="proj-link live-link">
-              🌐 View Live Site
-            </a>
+            <a href="https://madam-choice-footwear2.vercel.app/" target="_blank" rel="noopener noreferrer" class="proj-link live-link">🌐 View Live Site</a>
           </div>
         </div>
 
         <div class="project-card">
           <div class="project-top">
             <span class="project-tag">Backend</span>
-            <span class="project-year">2025</span>
+            <span class="project-year">2024</span>
           </div>
-          <h3>Expense Tracker App</h3>
-          <p>Backend system managing 100+ transactions with multi-category filtering, date-range queries, and automated report generation achieving 99% uptime.</p>
+          <h3>Inventory Management System</h3>
+          <p>Full-featured inventory system with real-time stock tracking, supplier management, and automated reorder alerts. Handles thousands of SKUs with lightning-fast queries.</p>
           <div class="project-metrics">
-            <div class="metric-item"><span class="metric-val">99%</span><span class="metric-label">Uptime</span></div>
-            <div class="metric-item"><span class="metric-val">200ms</span><span class="metric-label">Response</span></div>
             <div class="metric-item"><span class="metric-val">60%</span><span class="metric-label">Less Effort</span></div>
           </div>
           <div class="project-stack">
@@ -247,9 +270,7 @@
             <span>FastAPI</span><span>Python</span><span>MySQL</span><span>REST API</span><span>Android APK</span>
           </div>
           <div class="project-links">
-            <a href="https://drive.google.com/uc?export=download&id=1Zi3B_EQHGB7b3w0NeOQU0u1sbDG3y8uz" target="_blank" rel="noopener noreferrer" class="proj-link apk-link">
-              📱 Download APK (Demo)
-            </a>
+            <a href="https://drive.google.com/uc?export=download&id=1Zi3B_EQHGB7b3w0NeOQU0u1sbDG3y8uz" target="_blank" rel="noopener noreferrer" class="proj-link apk-link">📱 Download APK (Demo)</a>
           </div>
         </div>
 
@@ -268,15 +289,15 @@
             <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Vercel</span>
           </div>
           <div class="project-links">
-            <a href="https://qgs-website.vercel.app/" target="_blank" rel="noopener noreferrer" class="proj-link live-link">
-              🌐 View Live Site
-            </a>
+            <a href="https://qgs-website.vercel.app/" target="_blank" rel="noopener noreferrer" class="proj-link live-link">🌐 View Live Site</a>
           </div>
         </div>
 
       </div>
     </div>
   </section>
+
+  <!-- ===== CERTIFICATIONS ===== -->
   <section class="certs-section" id="certifications">
     <div class="container">
       <div class="section-header">
@@ -320,7 +341,7 @@
     </div>
   </section>
 
-  <!-- CONTACT -->
+  <!-- ===== CONTACT ===== -->
   <section class="contact-section" id="contact">
     <div class="container">
       <div class="contact-wrapper">
@@ -343,8 +364,8 @@
             </div>
           </div>
           <div class="social-links">
-            <a href="https://github.com/Farhan71140" target="_blank" rel="noopener noreferrer" class="social-btn">GitHub</a>
-            <a href="https://www.linkedin.com/in/mdfarhanuddin/" target="_blank" rel="noopener noreferrer" class="social-btn">LinkedIn</a>
+            <a href="https://github.com/Farhan71140" target="_blank" rel="noopener noreferrer" class="social-btn"><span>GitHub</span></a>
+            <a href="https://www.linkedin.com/in/mdfarhanuddin/" target="_blank" rel="noopener noreferrer" class="social-btn"><span>LinkedIn</span></a>
           </div>
         </div>
 
@@ -364,16 +385,15 @@
           <button type="submit" class="btn-primary full-width">Send Message</button>
           <p id="form-status" style="text-align:center;font-size:0.85rem;min-height:1.2em;color:var(--muted);"></p>
         </form>
-
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
+  <!-- ===== FOOTER ===== -->
   <footer>
-    <p>© 2025 Mohammed Farhan Uddin · Built with passion in Hyderabad</p>
+    <p>© 2025 Mohammed Farhan Uddin · Built with <span>♥</span> in Hyderabad</p>
   </footer>
 
-  <script src="js/main.js?v=2"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
